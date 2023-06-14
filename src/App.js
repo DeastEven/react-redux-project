@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Layout, Space } from "antd";
+import Body from "./components/Body";
+
+const { Header, Footer, Content } = Layout;
 
 function App() {
+  const headerStyle = {
+    textAlign: "center",
+    color: "#fff",
+    height: 64,
+    paddingInline: 50,
+    lineHeight: "64px",
+    backgroundColor: "#7dbcea",
+  };
+  const contentStyle = {
+    minHeight: 120,
+    lineHeight: "120px",
+  };
+
+  const footerStyle = {
+    textAlign: "center",
+    color: "#fff",
+    backgroundColor: "#7dbcea",
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Space
+        direction="vertical"
+        style={{
+          width: "100%",
+        }}
+        size={[0, 48]}
+      >
+        <Layout>
+          <Header style={headerStyle}>Header</Header>
+          <Content style={contentStyle}>
+            <Body />
+          </Content>
+          <Footer style={footerStyle}>Footer</Footer>
+        </Layout>
+      </Space>
     </div>
   );
 }
